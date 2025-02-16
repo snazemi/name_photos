@@ -1,4 +1,5 @@
 import os
+import pathlib
 import glob
 import requests
 from PIL import Image
@@ -9,7 +10,7 @@ processor = Blip2Processor.from_pretrained("Salesforce/blip2-opt-2.7b")
 model = Blip2ForConditionalGeneration.from_pretrained("Salesforce/blip2-opt-2.7b")
 
 # Specify the directory where your images are
-image_dir = "/Users/soroush.nazemi/Library/CloudStorage/OneDrive-ULRI-ULSE/Documents/_Soroush/DEV/Coursera/IBM AI Developer/Building AI App with Python/name_photos"
+image_dir = pathlib.Path(__file__).parent.resolve() # using the current path. change to any other path if needed.
 image_exts = ["jpg", "jpeg", "png"]  # specify the image file extensions to search for
 
 # Open a file to write the captions
